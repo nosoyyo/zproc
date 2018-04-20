@@ -1,3 +1,14 @@
+'''
+for local debug only
+'''
+import socket
+import socks
+SOCKS5_PROXY_HOST = '127.0.0.1'
+SOCKS5_PROXY_PORT = 1086
+default_socket = socket.socket
+socks.set_default_proxy(socks.SOCKS5, SOCKS5_PROXY_HOST, SOCKS5_PROXY_PORT)
+socket.socket = socks.socksocket
+
 import json
 import time
 import traceback
